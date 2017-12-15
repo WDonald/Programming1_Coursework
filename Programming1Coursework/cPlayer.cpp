@@ -1,6 +1,6 @@
 /*
 =================
-cRocket.cpp
+cplayer.cpp
 - Header file for class definition - IMPLEMENTATION
 =================
 */
@@ -46,16 +46,16 @@ void cPlayer::update(double deltaTime)
 }
 /*
 =================================================================
-Sets the velocity for the rocket
+Sets the velocity for the player
 =================================================================
 */
-void cPlayer::setPlayerVelocity(SDL_Point rocketVel)
+void cPlayer::setPlayerVelocity(SDL_Point playerVel)
 {
-	playerVelocity = rocketVel;
+	playerVelocity = playerVel;
 }
 /*
 =================================================================
-Gets the rocket velocity
+Gets the player velocity
 =================================================================
 */
 SDL_Point cPlayer::getPlayerVelocity()
@@ -77,18 +77,18 @@ Update the sprite position
 //
 //	spriteVelocityAdd *= spriteTranslation;
 //
-//	rocketVelocity += spriteVelocityAdd;
+//	playerVelocity += spriteVelocityAdd;
 //
-//	spritePos2D += rocketVelocity * deltaTime;
+//	spritePos2D += playerVelocity * deltaTime;
 //
-//	rocketVelocity *= 0.95;
+//	playerVelocity *= 0.95;
 //
 //	/*
 //	==============================================================
 //	| Check for collisions
 //	==============================================================
 //	*/
-//	for (vector<cBullet*>::iterator bulletIterartor = theRocketBullets.begin(); bulletIterartor != theRocketBullets.end(); ++bulletIterartor)
+//	for (vector<cBullet*>::iterator bulletIterartor = theplayerBullets.begin(); bulletIterartor != theplayerBullets.end(); ++bulletIterartor)
 //	{
 //		(*bulletIterartor)->update(deltaTime);
 //		for (vector<cAsteroid*>::iterator asteroidIterator = theAsteroids.begin(); asteroidIterator != theAsteroids.end(); ++asteroidIterator)
@@ -102,12 +102,12 @@ Update the sprite position
 //		}
 //	}
 //
-//	vector<cBullet*>::iterator bulletIterartor = theRocketBullets.begin();
-//	while (bulletIterartor != theRocketBullets.end())
+//	vector<cBullet*>::iterator bulletIterartor = theplayerBullets.begin();
+//	while (bulletIterartor != theplayerBullets.end())
 //	{
 //		if ((*bulletIterartor)->isActive() == false)
 //		{
-//			bulletIterartor = theRocketBullets.erase(bulletIterartor);
+//			bulletIterartor = theplayerBullets.erase(bulletIterartor);
 //		}
 //		else
 //		{

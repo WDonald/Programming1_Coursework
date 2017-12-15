@@ -118,6 +118,7 @@ void cGame::initialise(SDL_Window* theSDLWND, SDL_Renderer* theRenderer)
 	spriteBkgd.setTexture(theTextureMgr->getTexture("theBackground"));
 	spriteBkgd.setSpriteDimensions(theTextureMgr->getTexture("theBackground")->getTWidth(), theTextureMgr->getTexture("theBackground")->getTHeight());
 
+	//create player
 	thePlayer.setSpritePos({ 500, 500 });
 	thePlayer.setSpriteRotAngle(90);
 	thePlayer.setTexture(theTextureMgr->getTexture("thePlayer"));
@@ -125,21 +126,17 @@ void cGame::initialise(SDL_Window* theSDLWND, SDL_Renderer* theRenderer)
 	thePlayer.setPlayerVelocity({ 0, 0 });
 
 	// Create vector array of textures
-
-
-	//if (thePumpkins.get)
-	//{ }
-	for (int astro = 0; astro < 10; astro++)
+	for (int pump = 0; pump < 10; pump++)
 	{
 		thePumpkins.push_back(new cPumpkin);
-		thePumpkins[astro]->setSpritePos({ 150 * (rand() % 5 + 1), 50 * (rand() % 5 + 1) }); //100*(rand),50*(rand)
-		thePumpkins[astro]->setSpriteTranslation({ (rand() % 8 + 1), (rand() % 8 + 1) });
+		thePumpkins[pump]->setSpritePos({ 150 * (rand() % 5 + 1), 50 * (rand() % 5 + 1) }); 
+		thePumpkins[pump]->setSpriteTranslation({ (rand() % 8 + 1), (rand() % 8 + 1) });
 		
 		int randPumpkin = rand() % 4;
-		thePumpkins[astro]->setTexture(theTextureMgr->getTexture(textureName[randPumpkin]));
-		thePumpkins[astro]->setSpriteDimensions(theTextureMgr->getTexture(textureName[randPumpkin])->getTWidth(), theTextureMgr->getTexture(textureName[randPumpkin])->getTHeight());
-		thePumpkins[astro]->setPumpkinVelocity({ 3, 3 });
-		thePumpkins[astro]->setActive(true);
+		thePumpkins[pump]->setTexture(theTextureMgr->getTexture(textureName[randPumpkin]));
+		thePumpkins[pump]->setSpriteDimensions(theTextureMgr->getTexture(textureName[randPumpkin])->getTWidth(), theTextureMgr->getTexture(textureName[randPumpkin])->getTHeight());
+		thePumpkins[pump]->setPumpkinVelocity({ 3, 3 });
+		thePumpkins[pump]->setActive(true);
 	}
 
 }
@@ -407,7 +404,6 @@ void cGame::update(double deltaTime)
 			}
 			else
 			{
-
 				//https://wiki.libsdl.org/SDL_ShowSimpleMessageBox
 				cout << "File '" << theFile.getFileName() << "' opened for output!" << endl;
 				SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Saved", "Score Saved", NULL);
@@ -544,7 +540,6 @@ bool cGame::getInput(bool theLoop)
 				{
 					thePlayer.setSpriteRotAngle(-90);
 					thePlayer.setSpriteTranslation({10,5});
-
 				}
 				break;
 				

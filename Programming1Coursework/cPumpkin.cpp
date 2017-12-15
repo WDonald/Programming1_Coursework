@@ -30,7 +30,6 @@ void cPumpkin::update(double deltaTime)
 		this->setSpriteRotAngle(this->getSpriteRotAngle() -360);	
 	}
 	
-	
 	SDL_Rect currentSpritePos = this->getSpritePos();
 	if(currentSpritePos.y > 800)
 	{
@@ -43,9 +42,7 @@ void cPumpkin::update(double deltaTime)
 	currentSpritePos.y += this->getSpriteTranslation().y + 0.1;
 	}
 
-
 	this->setSpritePos({ currentSpritePos.x, currentSpritePos.y });
-	//cout << "Asteroid position - x: " << this->getSpritePos().x << " y: " << this->getSpritePos().y << " deltaTime: " << deltaTime << endl;
 	this->setBoundingRect(this->getSpritePos());
 	
 }
